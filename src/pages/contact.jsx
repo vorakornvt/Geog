@@ -1,50 +1,56 @@
 // [2A] BASIC ROUTES - URL: https://localhost:3000/about
-import Button from "@/components/Button";
-import ButtonSimple from "@/components/ButtonSimple";
-import Link from "next/link";
+
 import Image from "next/image";
-import WorldBlack from "@/components/WorldBlack";
+import { FaLinkedin } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa6";
+import { FaGoogle } from "react-icons/fa";
 
 const ContactPage = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-black ">
-      <div className="flex flex-col md:flex-row w-full max-w-6xl px-6 py-12 gap-8">
-        {/* 3D Model Section */}
-        <div className="w-full md:w-1/2 flex items-center justify-center p-4">
-          <div className="w-full h-[300px] md:h-[500px]">
-            <WorldBlack />
-          </div>
-        </div>
+    <main className="min-h-screen bg-black flex items-center justify-center px-4">
+      <section className="w-full max-w-md text-center flex flex-col items-center space-y-6">
+        <Image
+          src="/assets/AB.png"
+          alt="Profile or brand logo"
+          height={250}
+          width={250}
+          className="rounded-full"
+        />
+        <p className="font-main text-white text-sm">
+          I&apos;d love to hear from you.{" "}
+          <span className="text-[#35FFAE]">Get in touch.</span> I&apos;m
+          friendly.
+        </p>
 
-        {/* Text Content Section */}
-        <div className="w-full md:w-1/2 flex flex-col justify-center text-center space-y-6 px-4">
-          <Image
-            src="/assets/CT.png"
-            alt="not found 404"
-            height={90}
-            width={90}
-            className="mx-auto"
-          />
-          <h1 className="text-4xl text-white md:text-6xl font-bold leading-tight">
-            Why Explore the World?
-          </h1>
-          <p className="text-md md:text-lg text-white font-light">
-            GeoGlobe uses the REST Countries API to gather up-to-date country
-            data. This open-source API provides rich information about all
-            recognized nations and territories.
-          </p>
-
-          <div className="space-x-4">
-            <Link href="/task">
-              <Button>Explore Countries</Button>
-            </Link>
-            <Link href="/contact">
-              <ButtonSimple>Contact Us</ButtonSimple>
-            </Link>
-          </div>
+        {/* Social Media Icons */}
+        <div className="flex mx-auto space-x-9">
+          <a
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+          >
+            <FaLinkedin className="text-white" size={35} />
+          </a>
+          <a
+            href="https://github.com/vorakornvt"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+          >
+            <FaGithub className="text-white" size={35} />
+          </a>
+          <a
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Google"
+          >
+            <FaGoogle className="text-white" size={35} />
+          </a>
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 };
 export default ContactPage;

@@ -20,7 +20,10 @@ export default function Header() {
       <div className="navbar-end hidden lg:flex">
         <ul className="menu menu-horizontal text-[16px] gap-2 px-1 font-medium">
           <li>
-            <Link href="/about" className=" text-white hover:text-[#35FFAE] ">
+            <Link
+              href="/allcountries"
+              className=" text-white hover:text-[#35FFAE] "
+            >
               All Countries
             </Link>
           </li>
@@ -38,13 +41,6 @@ export default function Header() {
             <Link href="/contact" className=" text-white hover:text-[#35FFAE] ">
               Contact
             </Link>
-          </li>
-          <li>
-            <input
-              type="text"
-              placeholder="Search"
-              className="input input-bordered w-24 md:w-auto"
-            />
           </li>
         </ul>
       </div>
