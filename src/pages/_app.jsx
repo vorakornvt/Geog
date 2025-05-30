@@ -8,7 +8,7 @@ function App({ Component, pageProps }) {
   return (
     <Fragment>
       <Head>
-        <link rel="shortcut icon" href="/images/favicon.ico" />
+        <link rel="shortcut icon" href="/public/assets/logoO.png" />
       </Head>
       <Layout>
         <Component {...pageProps} />

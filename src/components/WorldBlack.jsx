@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import * as THREE from "three";
 
-function World() {
+function WorldBlack() {
   const mountRef = useRef(null);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ function World() {
     container.appendChild(renderer.domElement);
 
     const textureLoader = new THREE.TextureLoader();
-    const textureURL = "/earth-texture.jpg";
+    const textureURL = "/earth-texture-black.png";
 
     textureLoader.load(
       textureURL,
@@ -31,14 +31,14 @@ function World() {
           transparent: true,
           opacity: 1,
           emissive: new THREE.Color(0x00fc97),
-          emissiveIntensity: 0.8,
+          emissiveIntensity: 0,
         });
 
         const sphere = new THREE.Mesh(geometry, material);
         scene.add(sphere);
 
         // Soft even lighting
-        const ambientLight = new THREE.AmbientLight(0xffffff, 3);
+        const ambientLight = new THREE.AmbientLight(0xffffff, 7);
         scene.add(ambientLight);
 
         const animate = () => {
@@ -84,4 +84,4 @@ function World() {
   );
 }
 
-export default World;
+export default WorldBlack;
