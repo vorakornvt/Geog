@@ -26,7 +26,7 @@ const AboutPage = () => {
         </p>
 
         <div className="space-x-4">
-          <Link href="/task">
+          <Link href="/country">
             <Button>Explore Countries</Button>
           </Link>
           <Link href="/contact">

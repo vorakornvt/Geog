@@ -24,10 +24,10 @@ function HeroSection() {
             and more—powered by the REST Countries API."
           </p>
           <div className="space-x-4">
-            <Link href="/allcountries">
+            <Link href="/country">
               <Button>Explore Countries</Button>
             </Link>
-            <Link href="/record">
+            <Link href="/region">
               <ButtonSimple>Filter by Region</ButtonSimple>
             </Link>
           </div>

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import CountryCard from "./CountryCard";
 import Button from "./Button";
 import ButtonSimple from "./ButtonSimple";
+import Loader from "./Loader";
 
 const defaultCountries = [
   "france",
@@ -76,7 +77,6 @@ export default function CountrySearch() {
           onChange={(e) => setSearchType(e.target.value)}
           className="px-4 text-white py-2 border rounded-md"
         >
-          <option value="region">Search by Region</option>
           <option value="capital">Search by Capital</option>
           <option value="name">Search by Name</option>
         </select>
@@ -101,7 +101,7 @@ export default function CountrySearch() {
 
       {/* Results */}
       {loading ? (
-        <p className="text-center">Loading...</p>
+        <Loader />
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 justify-items-center">
           {results.map((country) => (
@@ -109,6 +109,7 @@ export default function CountrySearch() {
               key={country.cca3}
               name={country.name.common}
               flag={country.flags.svg}
+              code={country.cca3}
             />
           ))}
         </div>

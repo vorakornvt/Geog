@@ -1,12 +1,13 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Header() {
   return (
-    <div className="navbar bg-black shadow-sm ">
+    <div className="navbar bg-black shadow-sm">
       <div className="navbar-start">
         <Link href="/">
-          {" "}
           <Image
             src="/assets/textOwhite.png"
             alt="GrogLogo"
@@ -17,24 +18,26 @@ export default function Header() {
           />
         </Link>
       </div>
+
       <div className="navbar-end hidden lg:flex">
         <ul className="menu menu-horizontal text-[16px] gap-2 px-1 font-medium">
           <li>
-            <Link
-              href="/allcountries"
-              className=" text-white hover:text-[#35FFAE] "
-            >
+            <Link href="/country" className="text-white hover:text-[#35FFAE]">
               Search Country
             </Link>
           </li>
-
           <li>
-            <Link href="/about" className=" text-white hover:text-[#35FFAE] ">
+            <Link href="/region" className="text-white hover:text-[#35FFAE]">
+              Region
+            </Link>
+          </li>
+          <li>
+            <Link href="/about" className="text-white hover:text-[#35FFAE]">
               About
             </Link>
           </li>
           <li>
-            <Link href="/contact" className=" text-white hover:text-[#35FFAE] ">
+            <Link href="/contact" className="text-white hover:text-[#35FFAE]">
               Contact
             </Link>
           </li>
