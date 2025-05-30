@@ -1,8 +1,11 @@
 import React from "react";
 
-function Button({ children }) {
+function Button({ children, onClick }) {
   return (
-    <button className="btn text-md px-6 bg-[#35FFAE] hover:bg-[#35ffae83] h-12 rounded-3xl">
+    <button
+      onClick={onClick}
+      className="btn text-md px-6 bg-[#35FFAE] hover:bg-[#35ffae83] h-12 rounded-3xl"
+    >
       {children}
     </button>
   );

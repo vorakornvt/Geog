@@ -24,14 +24,10 @@ export default function Header() {
               href="/allcountries"
               className=" text-white hover:text-[#35FFAE] "
             >
-              All Countries
+              Search Country
             </Link>
           </li>
-          <li>
-            <Link href="/about" className=" text-white hover:text-[#35FFAE] ">
-              Regions
-            </Link>
-          </li>
+
           <li>
             <Link href="/about" className=" text-white hover:text-[#35FFAE] ">
               About

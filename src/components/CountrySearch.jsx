@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import CountryCard from "./CountryCard";
+import Button from "./Button";
+import ButtonSimple from "./ButtonSimple";
 
 const defaultCountries = [
   "france",
@@ -17,7 +19,6 @@ export default function CountrySearch() {
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
 
-  // Fetch default countries on mount
   useEffect(() => {
     const fetchDefault = async () => {
       setLoading(true);
@@ -73,7 +74,7 @@ export default function CountrySearch() {
         <select
           value={searchType}
           onChange={(e) => setSearchType(e.target.value)}
-          className="px-4 py-2 border rounded-md"
+          className="px-4 text-white py-2 border rounded-md"
         >
           <option value="region">Search by Region</option>
           <option value="capital">Search by Capital</option>
@@ -85,22 +86,12 @@ export default function CountrySearch() {
           placeholder={`Enter ${searchType}`}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          className="px-4 py-2 border rounded-md w-full sm:w-64"
+          className="px-4 py-2 text-white border rounded-md w-full sm:w-64"
         />
 
-        <button
-          onClick={handleSearch}
-          className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"
-        >
-          Search
-        </button>
+        <Button onClick={handleSearch}>Search</Button>
 
-        <button
-          onClick={handleReset}
-          className="text-gray-600 border border-gray-300 px-4 py-2 rounded-md hover:bg-gray-100"
-        >
-          Reset
-        </button>
+        <ButtonSimple onClick={handleReset}>Reset</ButtonSimple>
       </div>
 
       {/* Error Message */}
@@ -112,7 +103,7 @@ export default function CountrySearch() {
       {loading ? (
         <p className="text-center">Loading...</p>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 justify-items-center">
           {results.map((country) => (
             <CountryCard
               key={country.cca3}
@@ -121,6 +112,12 @@ export default function CountrySearch() {
             />
           ))}
         </div>
+      )}
+      {/* Total results at the bottom */}
+      {!loading && results.length > 0 && (
+        <p className="text-center mt-8 text-gray-400">
+          Total Results: <span className="font-semibold">{results.length}</span>
+        </p>
       )}
     </div>
   );
