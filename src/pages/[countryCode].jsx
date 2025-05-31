@@ -63,7 +63,7 @@ export default function CountryDetail() {
             className="max-w-xs rounded-xl shadow-lg"
           /> */}
 
-          <div className="w-full h-[300px] md:h-[500px]">
+          <div className="w-full h-[300px] sm:h-[250px] md:h-[500px]">
             <Flag3d prop={country.flags.svg} />
           </div>
         </div>
