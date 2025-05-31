@@ -6,10 +6,11 @@ function HomePage() {
   return (
     <Fragment>
       <Head>
-        <title>Code-Feed | Home</title>
+        <title>GROG | Home</title>
         <meta
           name="description"
-          description="Browse all the coding news of today from around the globe"
+          description="Explore detailed profiles of every nation—facts, flags, regions,
+            and more—powered by the REST Countries API."
         />
       </Head>
       <HeroSection />

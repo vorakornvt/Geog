@@ -2,14 +2,8 @@ import { useState } from "react";
 import CountryCard from "@/components/CountryCard";
 import ButtonSimple from "@/components/ButtonSimple";
 import Loader from "./Loader";
-
-const REGIONS = [
-  { name: "Africa", image: "assets/region-africa.png" },
-  { name: "Americas", image: "assets/region-americas.png" },
-  { name: "Asia", image: "assets/region-asia.png" },
-  { name: "Europe", image: "assets/region-europe.png" },
-  { name: "Oceania", image: "assets/region-oceania.png" },
-];
+import MapRegion from "./MapRegion";
+import Image from "next/image";
 
 export default function RegionSearchPage() {
   const [selectedRegion, setSelectedRegion] = useState("");
@@ -43,29 +37,21 @@ export default function RegionSearchPage() {
   };
 
   return (
-    <div className="p-6 max-w-7xl mx-auto">
-      <h1 className="text-md text-[#35FFAE] text-center mb-6">
-        Select a Region
-      </h1>
-
-      {/* Region Cards */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-8">
-        {REGIONS.map((region) => (
-          <button
-            key={region.name}
-            onClick={() => fetchByRegion(region.name)}
-            className={`border rounded-b-md border-black overflow-hidden hover:border-[#35FFAE] transition ${
-              selectedRegion === region.name ? "ring-2 ring-[#35FFAE]" : ""
-            }`}
-          >
-            <img
-              src={region.image}
-              alt={region.name}
-              className="w-full h-full object-cover"
-            />
-          </button>
-        ))}
+    <div className="p-6 max-w-7xl  mx-auto">
+      <Image
+        src="/assets/Select.png"
+        alt="countiestext"
+        height={250}
+        width={250}
+        className="rounded-full mb-10 mx-auto"
+      />
+      <div className="ms-50 w-[70%]">
+        <MapRegion
+          onRegionClick={(regionName) => fetchByRegion(regionName)}
+          selectedRegion={selectedRegion}
+        />
       </div>
+      {/* Region MAP */}
 
       {/* Reset Button */}
       {selectedRegion && (
@@ -83,27 +69,30 @@ export default function RegionSearchPage() {
         <>
           {/* Chosen Region Display */}
           {selectedRegion && (
-            <h2 className="text-md text-end text-[#35FFAE] mb-4">
+            <p className="text-md text-end text-[#35FFAE] mb-4">
               countries in: <span className="capitalize">{selectedRegion}</span>
-            </h2>
+            </p>
           )}
 
+          {/* Total Count */}
+          <p className="text-end text-sm  text-gray-200">
+            Total Countries:
+            <span className="text-[#35FFAE] mb-3 font-semibold">
+              {countries.length}
+            </span>
+          </p>
+
           {/* Country Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 justify-items-center">
             {countries.map((c) => (
               <CountryCard
                 key={c.cca3}
                 name={c.name.common}
                 flag={c.flags.svg}
+                code={c.cca3}
               />
             ))}
           </div>
-
-          {/* Total Count */}
-          <p className="text-center mt-8 text-gray-700">
-            Total Results:{" "}
-            <span className="font-semibold">{countries.length}</span>
-          </p>
         </>
       ) : null}
     </div>

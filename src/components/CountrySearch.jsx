@@ -88,7 +88,7 @@ export default function CountrySearch() {
             placeholder={`Enter ${searchType}`}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="px-4 py-2 text-white border rounded-md w-full sm:w-77"
+            className="px-4 py-2 text-white border rounded-md w-full "
           />
         </div>
         {/* Buttons Row */}

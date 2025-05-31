@@ -51,7 +51,7 @@ function Footer() {
           </a>
         </div>
         <p className="text-xs">
-          Check out my{" "}
+          Want to know more about me? Check out my{" "}
           <span className="text-[#35FFAE]">
             <a href="https://vorakornvt-portfolio.vercel.app/">resume</a>
           </span>{" "}

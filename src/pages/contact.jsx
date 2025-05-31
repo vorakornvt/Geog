@@ -44,7 +44,7 @@ const ContactPage = () => {
           </a>
         </div>
         <p className="text-white text-sm">
-          Or Check out my{" "}
+          Want to know more about me? Check out my{" "}
           <span className="text-[#35FFAE]">
             <a href="https://vorakornvt-portfolio.vercel.app/" target="_blank">
               resume
