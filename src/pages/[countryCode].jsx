@@ -62,7 +62,10 @@ export default function CountryDetail() {
             alt={`Flag of ${country.name.common}`}
             className="max-w-xs rounded-xl shadow-lg"
           /> */}
-          <Flag3d prop={country.flags.svg} />
+
+          <div className="w-full h-[300px] md:h-[500px]">
+            <Flag3d prop={country.flags.svg} />
+          </div>
         </div>
 
         {/* Text Content Section */}
