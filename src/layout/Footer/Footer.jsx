@@ -50,9 +50,16 @@ function Footer() {
             <FaGoogle size={20} />
           </a>
         </div>
+        <p className="text-xs">
+          Check out my{" "}
+          <span className="text-[#35FFAE]">
+            <a href="https://vorakornvt-portfolio.vercel.app/">resume</a>
+          </span>{" "}
+          site
+        </p>
 
         <p className="text-xs font-main text-center">
-          © {getCurrentYear()} — Vorakorn Taweetawon — Fullstack
+          © {getCurrentYear()} — Vorakorn Taweetawon — design and frontend
         </p>
       </div>
     </footer>

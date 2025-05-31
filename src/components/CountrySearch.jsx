@@ -71,27 +71,31 @@ export default function CountrySearch() {
   return (
     <div className="p-6">
       {/* Filter Controls */}
-      <div className="flex flex-col sm:flex-row items-center gap-4 mb-6">
-        <select
-          value={searchType}
-          onChange={(e) => setSearchType(e.target.value)}
-          className="px-4 text-white py-2 border rounded-md"
-        >
-          <option value="capital">Search by Capital</option>
-          <option value="name">Search by Name</option>
-        </select>
+      <div className="flex flex-col gap-4 mb-8">
+        {/* Select and Input Row */}
+        <div className="flex flex-col sm:flex-row items-center gap-4">
+          <select
+            value={searchType}
+            onChange={(e) => setSearchType(e.target.value)}
+            className="px-4 text-white py-2 border rounded-md"
+          >
+            <option value="capital">Search by Capital</option>
+            <option value="name">Search by Name</option>
+          </select>
 
-        <input
-          type="text"
-          placeholder={`Enter ${searchType}`}
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          className="px-4 py-2 text-white border rounded-md w-full sm:w-64"
-        />
-
-        <Button onClick={handleSearch}>Search</Button>
-
-        <ButtonSimple onClick={handleReset}>Reset</ButtonSimple>
+          <input
+            type="text"
+            placeholder={`Enter ${searchType}`}
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            className="px-4 py-2 text-white border rounded-md w-full sm:w-77"
+          />
+        </div>
+        {/* Buttons Row */}
+        <div className="flex items-center justify-end gap-4">
+          <Button onClick={handleSearch}>Search</Button>
+          <ButtonSimple onClick={handleReset}>Reset</ButtonSimple>
+        </div>
       </div>
 
       {/* Error Message */}

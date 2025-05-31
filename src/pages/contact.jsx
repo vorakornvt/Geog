@@ -14,13 +14,7 @@ const ContactPage = () => {
           alt="Profile or brand logo"
           height={250}
           width={250}
-          className="rounded-full"
         />
-        <p className="font-main text-white text-sm">
-          I&apos;d love to hear from you.{" "}
-          <span className="text-[#35FFAE]">Get in touch.</span> I&apos;m
-          friendly.
-        </p>
 
         {/* Social Media Icons */}
         <div className="flex mx-auto space-x-9">
@@ -49,6 +43,15 @@ const ContactPage = () => {
             <FaGoogle className="text-white" size={35} />
           </a>
         </div>
+        <p className="text-white text-sm">
+          Or Check out my{" "}
+          <span className="text-[#35FFAE]">
+            <a href="https://vorakornvt-portfolio.vercel.app/" target="_blank">
+              resume
+            </a>
+          </span>{" "}
+          site
+        </p>
       </section>
     </main>
   );
