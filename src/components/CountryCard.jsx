@@ -4,7 +4,7 @@ import Link from "next/link";
 function CountryCard({ name, flag, code }) {
   return (
     <div className="bg-black rounded-xl shadow-md border-2 border-black hover:border-[#35FFAE] p-4 text-center hover:-translate-y-1 transition-transform w-full max-w-[180px]">
-      <Link href={`/${code}`}>
+      <Link href={`country/${code}`}>
         <img
           src={flag}
           alt={`Flag of ${name}`}

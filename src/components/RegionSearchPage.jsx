@@ -45,7 +45,7 @@ export default function RegionSearchPage() {
         width={250}
         className="rounded-full mb-10 mx-auto"
       />
-      <div className="ms-50 w-[70%]">
+      <div className="mx-auto w-[70%]">
         <MapRegion
           onRegionClick={(regionName) => fetchByRegion(regionName)}
           selectedRegion={selectedRegion}

@@ -12,7 +12,7 @@ function Flag3d({ prop }) {
     const height = container.clientHeight;
 
     const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
-    camera.position.z = 2;
+    camera.position.z = 3;
 
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
     renderer.setSize(width, height);
