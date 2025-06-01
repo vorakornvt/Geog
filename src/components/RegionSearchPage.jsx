@@ -39,7 +39,7 @@ export default function RegionSearchPage() {
   return (
     <div className="p-6 max-w-7xl  mx-auto">
       <Image
-        src="/assets/Select.png"
+        src="/assets/SCTN.png"
         alt="countiestext"
         height={250}
         width={250}
