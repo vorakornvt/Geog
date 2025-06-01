@@ -35,7 +35,10 @@ export default function Header() {
               </Link>
             </li>
             <li>
-              <Link href="/region" className="text-white hover:text-[#35FFAE]">
+              <Link
+                href="/continent"
+                className="text-white hover:text-[#35FFAE]"
+              >
                 Continent
               </Link>
             </li>
