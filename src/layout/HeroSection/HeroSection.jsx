@@ -28,7 +28,7 @@ function HeroSection() {
               <Button>Explore Countries</Button>
             </Link>
             <Link href="/region">
-              <ButtonSimple>Filter by Region</ButtonSimple>
+              <ButtonSimple>Filter by Continent</ButtonSimple>
             </Link>
           </div>
         </div>
