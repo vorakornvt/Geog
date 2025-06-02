@@ -1,5 +1,6 @@
+// pages/country/[countryCode].js
+
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
 import Loader from "@/components/Loader";
 import Link from "next/link";
 import Button from "@/components/Button";
@@ -8,39 +9,16 @@ import Flag3d from "@/components/Flag3d";
 import { Fragment } from "react";
 import Head from "next/head";
 
-export default function CountryDetail() {
+export default function CountryDetail({ country }) {
   const router = useRouter();
-  const { countryCode } = router.query;
 
-  const [country, setCountry] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    if (!countryCode) return;
-
-    const fetchCountry = async () => {
-      try {
-        const res = await fetch(
-          `https://restcountries.com/v3.1/alpha/${countryCode}`
-        );
-        const data = await res.json();
-        setCountry(data[0]);
-      } catch (err) {
-        console.error("Failed to fetch country:", err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchCountry();
-  }, [countryCode]);
-
-  if (loading)
+  if (router.isFallback) {
     return (
       <div className="min-h-screen items-center justify-center bg-black">
         <Loader />
       </div>
     );
+  }
 
   if (!country) return <p className="text-center mt-10">Country not found.</p>;
 
@@ -57,31 +35,26 @@ export default function CountryDetail() {
   return (
     <Fragment>
       <Head>
-        {" "}
-        <title>GROG | About {country.name.common}</title>
+        <title>{`GROG | About ${country.name.common}`}</title>
+
         <meta
           name="description"
-          content="GREG is a fast, modern web app that provides detailed country information using the REST Countries API. Explore  {country.name.common} ."
+          content={`Explore detailed information about ${country.name.common} using the GROG Country App.`}
         />
-        <meta name="keywords" content="About GREG, country information app, " />
+        <meta name="keywords" content="country info, GROG, flags, details" />
         <meta name="author" content="Vorakorn Taweetawon" />
       </Head>
+
       <div className="min-h-screen flex items-center justify-center bg-black text-white">
         <div className="flex flex-col md:flex-row w-full max-w-6xl px-6 mt-[-100px] gap-8">
           {/* Flag */}
           <div className="w-full md:w-1/2 flex items-center justify-center p-4">
-            {/* <img
-            src={country.flags.svg}
-            alt={`Flag of ${country.name.common}`}
-            className="max-w-xs rounded-xl shadow-lg"
-          /> */}
-
             <div className="w-full h-[300px] sm:h-[250px] md:h-[500px]">
               <Flag3d prop={country.flags.svg} />
             </div>
           </div>
 
-          {/* Text Content Section */}
+          {/* Info */}
           <div className="w-full md:w-1/2 flex flex-col justify-center space-y-4 px-4">
             <h1 className="text-4xl md:text-6xl font-bold leading-tight">
               {country.name.common}
@@ -135,4 +108,60 @@ export default function CountryDetail() {
       </div>
     </Fragment>
   );
+}
+
+export async function getStaticPaths() {
+  const defaultCountries = [
+    "france",
+    "japan",
+    "brazil",
+    "thailand",
+    "canada",
+    "australia",
+  ];
+
+  const responses = await Promise.all(
+    defaultCountries.map((name) =>
+      fetch(`https://restcountries.com/v3.1/name/${name}`).then((res) =>
+        res.json()
+      )
+    )
+  );
+
+  const countryData = responses.flat();
+
+  const paths = countryData.map((country) => ({
+    params: { countryCode: country.cca3 },
+  }));
+
+  return {
+    paths,
+    fallback: true,
+  };
+}
+
+export async function getStaticProps({ params }) {
+  try {
+    const res = await fetch(
+      `https://restcountries.com/v3.1/alpha/${params.countryCode}`
+    );
+    const data = await res.json();
+
+    if (!data || !data[0]) {
+      return {
+        notFound: true,
+      };
+    }
+
+    return {
+      props: {
+        country: data[0],
+      },
+      revalidate: 86400,
+    };
+  } catch (error) {
+    return {
+      notFound: true,
+    };
+  }
 }

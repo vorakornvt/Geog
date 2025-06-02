@@ -1,3 +1,5 @@
+//pages/country
+
 import React from "react";
 import CountrySearch from "@/components/CountrySearch";
 import Image from "next/image";
