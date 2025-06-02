@@ -65,7 +65,7 @@ const ContactPage = () => {
                 href="https://vorakornvt-portfolio.vercel.app/"
                 target="_blank"
               >
-                resume
+                portfolio
               </a>
             </span>{" "}
             site

@@ -37,7 +37,7 @@ function World() {
         const sphere = new THREE.Mesh(geometry, material);
         scene.add(sphere);
 
-        // Soft even lighting
+      
         const ambientLight = new THREE.AmbientLight(0xffffff, 3);
         scene.add(ambientLight);
 

@@ -53,7 +53,7 @@ function Footer() {
         <p className="text-xs">
           Want to know more about me? Check out my{" "}
           <span className="text-[#35FFAE]">
-            <a href="https://vorakornvt-portfolio.vercel.app/">resume</a>
+            <a href="https://vorakornvt-portfolio.vercel.app/">portfolio</a>
           </span>{" "}
           site
         </p>
