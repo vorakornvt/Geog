@@ -34,7 +34,7 @@ const ContactPage = () => {
           {/* Social Media Icons */}
           <div className="flex mx-auto space-x-9">
             <a
-              href="#"
+              href="https://linkedin.com/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
@@ -50,10 +50,10 @@ const ContactPage = () => {
               <FaGithub className="text-white" size={35} />
             </a>
             <a
-              href="#"
+              href="mailto:vorakorn.vt@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Google"
+              aria-label="Email"
             >
               <FaGoogle className="text-white" size={35} />
             </a>

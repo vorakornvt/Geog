@@ -9,12 +9,12 @@ function Footer() {
     <footer className="bg-black text-white px-6 py-8">
       {/* Top Section: Logo */}
       <div className="flex justify-center md:justify-start mb-6">
-        <Link href="/" aria-label="Homepage">
+        <Link className="mx-auto" href="/" aria-label="Homepage">
           <Image
             src="/assets/logoOw.png"
             alt="Focus Logo"
-            width={60}
-            height={60}
+            width={50}
+            height={50}
             className="cursor-pointer"
             priority
           />
@@ -44,7 +44,7 @@ function Footer() {
             <FaGithub size={20} />
           </a>
           <a
-            href="mailto:vorakorn.vt@gmail.com.com"
+            href="mailto:vorakorn.vt@gmail.com"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Email"
