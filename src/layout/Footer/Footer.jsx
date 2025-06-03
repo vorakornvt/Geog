@@ -3,14 +3,13 @@ import Link from "next/link";
 import { FaGithub, FaGoogle, FaLinkedin } from "react-icons/fa";
 
 function Footer() {
-  const getCurrentYear = () => new Date().getFullYear();
+  const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-black text-white px-6 py-4">
-      {/* Top Footer: Logo + Nav Links */}
-      <div className="flex flex-col md:flex-row justify-between items-center md:items-start">
-        {/* Left: Logo */}
-        <Link href="/" className=" mx-auto md:mb-0">
+    <footer className="bg-black text-white px-6 py-8">
+      {/* Top Section: Logo */}
+      <div className="flex justify-center md:justify-start mb-6">
+        <Link href="/" aria-label="Homepage">
           <Image
             src="/assets/logoOw.png"
             alt="Focus Logo"
@@ -22,44 +21,55 @@ function Footer() {
         </Link>
       </div>
 
-      {/* Bottom Footer: Social + Copyright */}
-      <div className="flex flex-col items-center mt-6">
-        <div className="flex space-x-6 mb-2">
+      {/* Social Links + Description */}
+      <div className="flex flex-col items-center text-center space-y-4">
+        {/* Social Icons */}
+        <div className="flex space-x-6">
           <a
-            href="https://linkedin.com/in/yourhandle"
+            href="https://linkedin.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-[#35FFAE]"
+            aria-label="LinkedIn"
+            className="hover:text-[#35FFAE] transition-colors"
           >
             <FaLinkedin size={20} />
           </a>
           <a
-            href="https://github.com/yourhandle"
+            href="https://github.com/vorakornvt"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-[#35FFAE]"
+            aria-label="GitHub"
+            className="hover:text-[#35FFAE] transition-colors"
           >
             <FaGithub size={20} />
           </a>
           <a
-            href="mailto:your.email@example.com"
+            href="mailto:vorakorn.vt@gmail.com.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-[#35FFAE]"
+            aria-label="Email"
+            className="hover:text-[#35FFAE] transition-colors"
           >
             <FaGoogle size={20} />
           </a>
         </div>
+
+        {/* Portfolio Link */}
         <p className="text-xs">
           Want to know more about me? Check out my{" "}
-          <span className="text-[#35FFAE]">
-            <a href="https://vorakornvt-portfolio.vercel.app/">portfolio</a>
-          </span>{" "}
-          site
+          <a
+            href="https://vorakornvt-portfolio.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#35FFAE] hover:underline"
+          >
+            portfolio
+          </a>
         </p>
 
+        {/* Copyright */}
         <p className="text-xs font-main text-center">
-          © {getCurrentYear()} — Vorakorn Taweetawon — design and frontend
+          © {currentYear} — Vorakorn Taweetawon — Design & Frontend
         </p>
       </div>
     </footer>

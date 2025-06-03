@@ -5,17 +5,26 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <div className="navbar bg-black shadow-sm">
+    <header
+      className="navbar bg-black shadow-sm"
+      role="navigation"
+      aria-label="Main navigation"
+    >
       <div className="navbar-start">
         {/* Hamburger dropdown for small screens */}
         <div className="dropdown lg:hidden">
-          <div tabIndex={0} role="button" className="btn btn-ghost text-white">
+          <button
+            tabIndex={0}
+            aria-label="Menu"
+            className="btn btn-ghost text-white"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
+              aria-hidden="true"
             >
               <path
                 strokeLinecap="round"
@@ -24,7 +33,7 @@ export default function Header() {
                 d="M4 6h16M4 12h16M4 18h16"
               />
             </svg>
-          </div>
+          </button>
           <ul
             tabIndex={0}
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-black rounded-box w-52"
@@ -56,10 +65,10 @@ export default function Header() {
         </div>
 
         {/* Logo */}
-        <Link href="/">
+        <Link href="/" aria-label="Homepage">
           <Image
             src="/assets/textOwhite.png"
-            alt="GrogLogo"
+            alt="Grog website logo"
             width={175}
             height={175}
             className="ms-5 pb-2"
@@ -69,7 +78,10 @@ export default function Header() {
       </div>
 
       {/* Main menu for large screens */}
-      <div className="navbar-end hidden lg:flex">
+      <nav
+        className="navbar-end hidden lg:flex"
+        aria-label="Desktop navigation"
+      >
         <ul className="menu menu-horizontal text-[16px] gap-2 px-1 font-medium">
           <li>
             <Link href="/country" className="text-white hover:text-[#35FFAE]">
@@ -92,7 +104,7 @@ export default function Header() {
             </Link>
           </li>
         </ul>
-      </div>
-    </div>
+      </nav>
+    </header>
   );
 }
