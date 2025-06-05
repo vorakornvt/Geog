@@ -51,7 +51,6 @@ export default function RegionSearchPage() {
           selectedRegion={selectedRegion}
         />
       </div>
-      {/* Region MAP */}
 
       {/* Reset Button */}
       {selectedRegion && (
