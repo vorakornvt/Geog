@@ -14,7 +14,7 @@ const defaultCountries = [
 ];
 
 export default function CountrySearch() {
-  const [searchType, setSearchType] = useState("region");
+  const [searchType, setSearchType] = useState("name");
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
